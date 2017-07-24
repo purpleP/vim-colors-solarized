@@ -367,7 +367,7 @@ endif
 "}}}
 " Background value based on termtrans setting "{{{
 " ---------------------------------------------------------------------
-if (has("gui_running") || g:solarized_termtrans == 0)
+if (has("gui_running") || g:solarized_termtrans == 0 || &termguicolors)
     let s:back        = s:base03
 else
     let s:back        = "NONE"
@@ -489,7 +489,7 @@ exe "let s:fmt_revb     = ' ".s:vmode."=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
 exe "let s:fmt_revbb    = ' ".s:vmode."=NONE".s:r.s:bb.   " term=NONE".s:r.s:bb."'"
 exe "let s:fmt_revbbu   = ' ".s:vmode."=NONE".s:r.s:bb.s:u." term=NONE".s:r.s:bb.s:u."'"
 
-if has("gui_running")
+if has("gui_running") || &termguicolors
     exe "let s:sp_none      = ' guisp=".s:none   ."'"
     exe "let s:sp_back      = ' guisp=".s:back   ."'"
     exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
@@ -653,7 +653,7 @@ exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
 exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
     endif
 endif
-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0
+exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
@@ -668,7 +668,7 @@ exe "hi! TabLineFill"    .s:fmt_undr   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! TabLineSel"     .s:fmt_undr   .s:fg_base01 .s:bg_base2   .s:sp_base0  .s:fmt_revbbu
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
-exe "hi! CursorLineNr"   .s:fmt_uopt   .s:fg_base01 .s:bg_base03  .s:sp_base1
+exe "hi! CursorLineNr"   .s:fmt_uopt   .s:fg_base01 .s:bg_base02  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
